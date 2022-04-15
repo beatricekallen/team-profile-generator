@@ -215,10 +215,56 @@ const getEmployeeInfo = () => {
 
 getEmployeeInfo();
 
-const generatePage = () => {};
+const generatePage = () => {
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My Team</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+      ${generateManager()}
+      ${generateEngineers()}
+      ${generateInterns()}
+  </body>
+  </html>`;
+};
 
-const generateManager = () => {};
+const generateManager = () => {
+  return `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Manager</h5>
+      <p class="card-text">Name: ${name}</p>
+      <p class="card-text">Employee ID: ${id}</p>
+      <p class="card-text">Email address: ${emailaddress}</p>
+      <p class="card-text">Office number: ${officenumber}</p>
+    </div>
+  </div>`;
+};
 
-const generateEngineers = () => {};
+const generateEngineers = () => {
+  return `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Engineer</h5>
+      <p class="card-text">Name: ${name}</p>
+      <p class="card-text">Employee ID: ${id}</p>
+      <p class="card-text">Email address: ${emailaddress}</p>
+      <p class="card-text">GitHub username: ${GitHubusername}</p>
+    </div>
+  </div>`;
+};
 
-const generateInterns = () => {};
+const generateInterns = () => {
+  return `<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Intern</h5>
+      <p class="card-text">Name: ${name}</p>
+      <p class="card-text">Employee ID: ${id}</p>
+      <p class="card-text">Email address: ${emailaddress}</p>
+      <p class="card-text">School: ${school}</p>
+    </div>
+  </div>`;
+};
