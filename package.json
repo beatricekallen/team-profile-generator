@@ -1,8 +1,26 @@
 {
-  "dependencies": {
-    "inquirer": "^8.2.2"
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beatricekallen/team-profile-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beatricekallen/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/beatricekallen/team-profile-generator#readme",
   "devDependencies": {
     "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.2"
   }
 }
