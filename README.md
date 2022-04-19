@@ -6,4 +6,4 @@ This is a Node.js application that uses both Inquirer and Jest to get informatio
 
 Link to GitHub repository: https://github.com/beatricekallen/team-profile-generator
 
-Link to walkthrough video:
+Link to walkthrough video: https://drive.google.com/file/d/1QnRC02p5s5HV53gaY_D57AJRt9IJ0fvE/view?usp=sharing
