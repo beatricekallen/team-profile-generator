@@ -12,16 +12,18 @@ const {
   addAnotherEmployeeQuestion,
 } = require("./lib/questions");
 const generateHtml = require("./src/generatehtml");
-const teamMembers = [];
+const teamManager = [];
+const allEngineers = [];
+const allInterns = [];
 
 class TeamProfile {
   constructor() {
-    this.teamMembers = [];
+    this.teamManager = [];
+    this.allEngineers = [];
+    this.allInterns = [];
   }
 
   getManagerInfo() {
-    console.log(managerQuestions);
-
     inquirer.prompt(managerQuestions).then((answers) => {
       const manager = new Manager(
         answers.managerName,
@@ -29,14 +31,13 @@ class TeamProfile {
         answers.managerEmail,
         answers.managerOfficeNumber
       );
-      teamMembers.push(manager);
+      teamManager.push(manager);
       this.addInternOrEngineer();
     });
   }
 
   addInternOrEngineer() {
     inquirer.prompt(chooseEngineerOrIntern).then((answers) => {
-      console.log(answers.addEmployee);
       switch (answers.addEmployee) {
         case "Engineer":
           this.getEngineerInfo();
@@ -58,8 +59,7 @@ class TeamProfile {
         answers.engineerEmail,
         answers.engineerGithub
       );
-      teamMembers.push(engineer);
-      console.log(teamMembers);
+      allEngineers.push(engineer);
       this.addAnotherEmployeeChoice();
     });
   }
@@ -72,7 +72,7 @@ class TeamProfile {
         answers.internEmail,
         answers.internSchool
       );
-      teamMembers.push(intern);
+      allInterns.push(intern);
       this.addAnotherEmployeeChoice();
     });
   }
@@ -81,15 +81,23 @@ class TeamProfile {
     inquirer.prompt(addAnotherEmployeeQuestion).then((answers) => {
       if (answers.confirmNewEmployee) {
         this.addInternOrEngineer();
+      } else {
+        this.createHtml(teamManager, allEngineers, allInterns);
+        console.log(teamManager);
+        console.log(allEngineers);
+        console.log(allInterns);
+        console.log(
+          "\nYour team profile has been generated in the dist folder.\n"
+        );
       }
       return;
     });
   }
 
-  createHtml() {
+  createHtml(teamManager, allEngineers, allInterns) {
     const file = fs.promises.writeFile(
       "./dist/index.html",
-      generateHtml(this.teamManager, this.allEngineers, this.allInterns),
+      generateHtml(teamManager, allEngineers, allInterns),
       "utf-8"
     );
   }
@@ -98,7 +106,6 @@ class TeamProfile {
     console.log("Welcome to the Team Profile Generator.");
 
     this.getManagerInfo();
-    // this.createHtml();
   }
 }
 
