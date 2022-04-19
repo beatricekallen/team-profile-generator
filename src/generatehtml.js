@@ -17,7 +17,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
     
     ${teamManager.map(
       (manager) =>
-        `<div class="row justify-content-around">
+        `<div class="row justify-content-center">
         <div class="col-4 m-2">
         <div class="card">
           <div class="card-body">
@@ -31,7 +31,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
         </div>
         </div>`
     )}
-    <div class="row">
+    <div class="row justify-content-around">
         ${allEngineers
           .map(
             (engineer) =>

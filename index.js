@@ -83,9 +83,7 @@ class TeamProfile {
         this.addInternOrEngineer();
       } else {
         this.createHtml(teamManager, allEngineers, allInterns);
-        console.log(teamManager);
-        console.log(allEngineers);
-        console.log(allInterns);
+
         console.log(
           "\nYour team profile has been generated in the dist folder.\n"
         );
