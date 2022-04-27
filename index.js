@@ -1,3 +1,4 @@
+// global variables
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -22,7 +23,7 @@ class TeamProfile {
     this.allEngineers = [];
     this.allInterns = [];
   }
-
+  // captures manager information from user
   getManagerInfo() {
     inquirer.prompt(managerQuestions).then((answers) => {
       const manager = new Manager(
@@ -36,6 +37,7 @@ class TeamProfile {
     });
   }
 
+  // prompts the user to add an intern or engineer
   addInternOrEngineer() {
     inquirer.prompt(chooseEngineerOrIntern).then((answers) => {
       switch (answers.addEmployee) {
@@ -51,6 +53,7 @@ class TeamProfile {
     });
   }
 
+  // captures engineer information from user
   getEngineerInfo() {
     inquirer.prompt(addEngineerQuestions).then((answers) => {
       const engineer = new Engineer(
@@ -64,6 +67,7 @@ class TeamProfile {
     });
   }
 
+  // captures intern information from user
   getInternInfo() {
     inquirer.prompt(addInternQuestions).then((answers) => {
       const intern = new Intern(
@@ -77,6 +81,7 @@ class TeamProfile {
     });
   }
 
+  // asks the user if they want to add another employee; if not, ends prompts and generates html
   addAnotherEmployeeChoice() {
     inquirer.prompt(addAnotherEmployeeQuestion).then((answers) => {
       if (answers.confirmNewEmployee) {
@@ -92,6 +97,7 @@ class TeamProfile {
     });
   }
 
+  // creates html file in the dist folder
   createHtml(teamManager, allEngineers, allInterns) {
     const file = fs.promises.writeFile(
       "./dist/index.html",
@@ -100,6 +106,7 @@ class TeamProfile {
     );
   }
 
+  // runs the prompts
   init() {
     console.log("Welcome to the Team Profile Generator.");
 

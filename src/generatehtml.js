@@ -1,3 +1,4 @@
+// generates HTML document with team profiles
 const generateHtml = (teamManager, allEngineers, allInterns) => {
   return `<!DOCTYPE html>
     <html lang="en">
@@ -24,7 +25,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
             <h5 class="card-title">Manager</h5>
               <p class="card-text">Name: ${manager.name}</p>
               <p class="card-text">Employee ID: ${manager.id}</p>
-              <p class="card-text">Email address: ${manager.email}</p>
+              <p class="card-text">Email address: <a href="mailto:${manager.email}">${manager.email}</a></p>
               <p class="card-text">Office number: ${manager.officeNumber}</p>
           </div>
         </div>
@@ -41,8 +42,8 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
                 <h5 class="card-title">Engineer</h5>
                   <p class="card-text">Name: ${engineer.name}</p>
                   <p class="card-text">Employee ID: ${engineer.id}</p>
-                  <p class="card-text">Email address: ${engineer.email}</p>
-                  <p class="card-text">GitHub username: ${engineer.github}</p>
+                  <p class="card-text">Email address: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                  <p class="card-text">GitHub username: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
               </div>
             </div>
             </div>`
@@ -58,7 +59,7 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
                 <h5 class="card-title">Intern</h5>
                   <p class="card-text">Name: ${intern.name}</p>
                   <p class="card-text">Employee ID: ${intern.id}</p>
-                  <p class="card-text">Email address: ${intern.email}</p>
+                  <p class="card-text">Email address: <a href="mailto:${intern.email}">${intern.email}</a></p>
                   <p class="card-text">School: ${intern.school}</p>
               </div>
             </div>
@@ -72,81 +73,5 @@ const generateHtml = (teamManager, allEngineers, allInterns) => {
     </body>
     </html>`;
 };
-
-// const generateTeamManager = (teamManager) => {
-//   return `
-//   <div class="col">
-//   <div class="card" style="width: 18rem;">
-//   <div class="card-body">
-//     <h5 class="card-title">Manager</h5>
-//     ${teamManager.map(
-//       (manager) => `<p class="card-text">Name: ${manager.name}`
-//     )}</p>
-//     ${teamManager.map(
-//       (manager) => `<p class="card-text">Employee ID: ${manager.id}`
-//     )}</p>
-//     ${teamManager.map(
-//       (manager) => `<p class="card-text">Email address: ${manager.email}`
-//     )}</p>
-//     ${teamManager.map(
-//       (manager) => `<p class="card-text">Office number: ${manager.officeNumber}`
-//     )}</p>
-//   </div>
-// </div>
-// </div>`;
-// };
-
-// const generateEngineers = (allEngineers) => {
-//   if (allEngineers !== []) {
-//     return `<div class="col">
-//   <div class="card" style="width: 18rem;">
-//       <div class="card-body">
-//         <h5 class="card-title">Engineer</h5>
-//         ${allEngineers.forEach((Engineer) => {
-//           `<p class="card-text">Name: ${Engineer.name}`;
-//         })}</p>
-//         ${allEngineers.forEach((Engineer) => {
-//           `<p class="card-text">Employee ID: ${Engineer.id}`;
-//         })}</p>
-//         ${allEngineers.forEach((Engineer) => {
-//           `<p class="card-text">Email address: ${Engineer.email}`;
-//         })}</p>
-//         ${allEngineers.forEach((Engineer) => {
-//           `<p class="card-text">Name: ${Engineer.github}`;
-//         })}</p>
-//       </div>
-//     </div>
-//     </div>`;
-//   } else return;
-// };
-
-// const generateInterns = (allInterns) => {
-//   if (allInterns !== []) {
-//     `${allInterns.map(
-//       (intern) =>
-//         `<div class="col">
-//         <div class="card" style="width: 18rem;">
-//           <div class="card-body">
-//             <h5 class="card-title">Intern</h5>
-//               <p class="card-text">Name: ${intern.name}</p>
-//               <p class="card-text">Employee ID: ${intern.id}</p>
-//               <p class="card-text">Email address: ${intern.email}</p>
-//               <p class="card-text">School: ${intern.school}</p>
-//           </div>
-//         </div>
-//         </div>}`
-//     );
-//   } else return " ";
-// };
-
-// const generateTeam = (teamManager, allEngineers, allInterns) => {
-//   generateTeamManager(teamManager);
-//   if (allEngineers !== []) {
-//     generateEngineers(allEngineers);
-//   }
-//   if (allInterns !== []) {
-//     generateInterns(allInterns);
-//   }
-// };
 
 module.exports = generateHtml;
