@@ -8,4 +8,4 @@ Link to GitHub repository: https://github.com/beatricekallen/team-profile-genera
 
 Link to walkthrough video: https://drive.google.com/file/d/1QnRC02p5s5HV53gaY_D57AJRt9IJ0fvE/view?usp=sharing
 
-<img width="1439" alt="Screen Shot 2022-04-19 at 7 01 31 PM" src="https://user-images.githubusercontent.com/98243455/164115688-258ea58c-1ab7-4e0c-9a7e-0f175b8f590e.png">
+<img width="1439" alt="Screen Shot 2022-04-27 at 4 10 26 PM" src="https://user-images.githubusercontent.com/98243455/165622771-c252518f-1deb-474f-a13e-7d256f4294bc.png">
